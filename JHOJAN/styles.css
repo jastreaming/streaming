@@ -1,0 +1,335 @@
+/* =========================
+   RESET GENERAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f4f8;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   HEADER Y NAVEGACIÓN
+========================= */
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: #00408a;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+nav ul li {
+    margin: 0 1.2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #023e73;
+}
+
+/* =========================
+   MAIN
+========================= */
+main {
+    padding: 2rem 1rem 3rem;
+    margin-top: 110px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.seccion {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.seccion-activa {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   PROMOCIONES
+========================= */
+.promo {
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.promo img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.promo-texto {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+.productos {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    width: 220px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.seccion-activa .producto {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.producto:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.producto img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 0.8rem;
+}
+
+.producto h3 {
+    margin-bottom: 0.5rem;
+    color: #003d7a;
+}
+
+.producto p {
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.producto button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.6rem 0;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+    background-color: #023e73;
+}
+
+/* =========================
+   CARRITO (animación corregida)
+========================= */
+#carrito {
+    position: fixed;
+    top: 120px;
+    right: -380px; /* fuera de la vista */
+    width: 340px;
+    max-height: 460px;
+    background-color: white;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -4px 0 25px rgba(0,0,0,0.25);
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 99999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: right 0.4s ease;
+    opacity: 1;
+}
+
+#carrito.mostrar {
+    right: 20px; /* entra suavemente */
+}
+
+#carrito h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #0056b3;
+    font-weight: 700;
+}
+
+#lista-carrito {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+#lista-carrito li span {
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+#lista-carrito li button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    margin-left: 0.3rem;
+    flex: 0 0 auto;
+}
+
+#lista-carrito li button:hover {
+    background-color: #a71d2a;
+}
+
+#total-carrito {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #004080;
+}
+
+#carrito button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+#carrito button:hover {
+    background-color: #023e73;
+}
+
+/* =========================
+   BOTÓN WHATSAPP
+========================= */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    font-size: 2.8rem;
+    border-radius: 50%;
+    padding: 0.3rem 0.4rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 10000;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    #carrito {
+        width: 90%;
+        right: -100%;
+        top: 90px;
+        max-height: 350px;
+        border-radius: 12px;
+        transition: right 0.4s ease;
+    }
+
+    #carrito.mostrar {
+        right: 5%;
+    }
+
+    .productos {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .producto {
+        width: 160px;
+        padding: 0.8rem;
+    }
+}

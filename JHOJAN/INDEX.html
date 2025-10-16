@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ja Streaming Service</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Ja Streaming Service</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="active" onclick="mostrarSeccion('inicio', this)">INICIO</a></li>
+                <li><a href="#perfiles" onclick="mostrarSeccion('perfiles', this)">PERFILES</a></li>
+                <li><a href="#cuentas" onclick="mostrarSeccion('cuentas', this)">CUENTAS</a></li>
+                <li><a href="#combos" onclick="mostrarSeccion('combos', this)">COMBOS</a></li>
+                <li><a href="#cables" onclick="mostrarSeccion('cables', this)">CABLES</a></li>
+                <li><a href="#" onclick="toggleCarrito()">Carrito 🛒 <span id="contador-carrito">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- INICIO -->
+        <section id="inicio" class="seccion seccion-activa">
+            <div class="promo">
+                <img src="img/promo.webp" alt="Promoción 1" />
+                <div class="promo-texto">¡Ofertas increíbles en streaming!</div>
+            </div>
+            <div class="promo">
+                <img src="img/promo2.avif" alt="Promoción 2" />
+                <div class="promo-texto">Disfruta tus series favoritas a precios bajos.</div>
+            </div>
+        </section>
+
+        <!-- PERFILES -->
+        <section id="perfiles" class="seccion">
+            <h2>PERFILES - 1 DISPOSITIVO</h2>
+            <div class="productos">
+                <article class="producto">
+                    <img src="img/net.png" alt="Netflix" />
+                    <h3>Netflix</h3>
+                    <p>Precio: S/. 10.00</p>
+                    <button onclick="agregarAlCarrito('Netflix', 10)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/prime.png" alt="Amazon Prime" />
+                    <h3>Amazon Prime</h3>
+                    <p>Precio: S/. 8.00</p>
+                    <button onclick="agregarAlCarrito('Amazon Prime', 8)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/hbo.jpg" alt="HBO" />
+                    <h3>HBO</h3>
+                    <p>Precio: S/. 8.00</p>
+                    <button onclick="agregarAlCarrito('HBO', 8)">Comprar</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- CUENTAS -->
+        <section id="cuentas" class="seccion">
+            <h2>Cuentas Completas - 5 Dispositivos</h2>
+            <div class="productos">
+                <article class="producto">
+                    <img src="img/net.png" alt="Netflix" />
+                    <h3>Netflix</h3>
+                    <p>Precio: S/. 20.00</p>
+                    <button onclick="agregarAlCarrito('Netflix - 5 Dispositivos', 20)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/prime.png" alt="Amazon Prime" />
+                    <h3>Amazon Prime</h3>
+                    <p>Precio: S/. 15.00</p>
+                    <button onclick="agregarAlCarrito('Amazon Prime - 5 Dispositivos', 15)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/hbo.jpg" alt="HBO" />
+                    <h3>HBO</h3>
+                    <p>Precio: S/. 15.00</p>
+                    <button onclick="agregarAlCarrito('HBO - 5 Dispositivos', 15)">Comprar</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- COMBOS -->
+        <section id="combos" class="seccion">
+            <h2>Combos Especiales</h2>
+            <div class="productos">
+                <article class="producto">
+                    <img src="img/net.png" alt="Netflix" />
+                    <h3>Netflix + Amazon Prime</h3>
+                    <p>Precio: S/. 25.00</p>
+                    <button onclick="agregarAlCarrito('Combo Netflix + Amazon Prime', 25)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/hbo.jpg" alt="HBO" />
+                    <h3>HBO + Netflix</h3>
+                    <p>Precio: S/. 25.00</p>
+                    <button onclick="agregarAlCarrito('Combo HBO + Netflix', 25)">Comprar</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- CABLES -->
+        <section id="cables" class="seccion">
+            <h2>Cables y Accesorios</h2>
+            <div class="productos">
+                <article class="producto">
+                    <img src="img/cable1.jpg" alt="Cable HDMI" />
+                    <h3>Cable HDMI</h3>
+                    <p>Precio: S/. 12.00</p>
+                    <button onclick="agregarAlCarrito('Cable HDMI', 12)">Comprar</button>
+                </article>
+                <article class="producto">
+                    <img src="img/cable2.jpg" alt="Cable USB" />
+                    <h3>Cable USB</h3>
+                    <p>Precio: S/. 8.00</p>
+                    <button onclick="agregarAlCarrito('Cable USB', 8)">Comprar</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="carrito">
+        <h3>Carrito de Compras</h3>
+        <ul id="lista-carrito"></ul>
+        <p id="total-carrito">Total: S/. 0.00</p>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button id="btn-enviar-wsp" onclick="enviarPedidoWhatsApp()">Enviar pedido por WhatsApp</button>
+    </div>
+    
+    <a href="https://wa.me/51977495812" target="_blank" class="btn-whatsapp" title="Contáctanos por WhatsApp">📱</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
